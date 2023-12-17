@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/unslide.css">
+    <title>Website Name</title>
+</head>
+<body>
+    <div></div>
+    <header>
+        <div class="logo-tit-con">
+            <div class="logo-con"><a href="/index.html"><img id="nav-logo" src="/assets/svgs/logo.jpg" alt=""></a></div>
+            <h1 class="hide-element">SRILA PRAHBUPADA WORLD PEACE FOUNDATION</h1>
+        </div>
+        <div class="tit-con"><h1>SRILA PRAHBUPADA WORLD PEACE FOUNDATION</h1></div>
+        <div class="nav-icon-con" id="menu"><img src="/assets/icons/menu.png" alt=""></div>
+        <nav class="">
+            <ul>
+                <li id="close-nav-bg"><img src="/assets/icons/close.png" alt=""></li>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="Team.html">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="finance.html">Finance</a></li>
+                <li><a href="donate.html">Donate</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        
+        <div class="wrapper">
+            <section>
+                <h2>DONATION</h2>
+                <p>As a charismatic world peace missionary outreach and charity organization, we simply represent excellency and dynamism in all ramification and manners of grassroots oriented humanitarian services to mankind, whilst these vulnerable includes the needy, the oppressed and the less privileged in the society, to be precise. And because we are dedicated and much closer to these handicaps who desperately need your help and supports to live and survive, we therefore hereby simply serve you as a trusted medium to deliver your donations and generosities as good Samaritans to the sick and motherless children, who really deserved your sympathy and love; hence the assertion which believes that givers never lack to give more.” Therefore save a life with just a token of your widow’s mite today!!</p>
+            </section>
+            <section>
+                <table class="donate-table">
+                    <caption>Donate</caption>
+                    <tr>
+                        <td>Account Number::</td>
+                        <td>0240787874</td>
+                    </tr>
+                    <tr>
+                        <td>Bank:</td>
+                        <td>Garranty Trust Bank Nigeria</td>
+                    </tr>
+                    <tr>
+                        <td>Account Name:</td>
+                        <td>Nwakwo Shedrack</td>
+                    </tr>
+                    <tr>
+                        <td>Swift Code:</td>
+                        <td>GTBINGLA</td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+    </main>
+    
+    <script>
+const menu = document.querySelector('#menu');
+const nav = document.querySelector('nav');
+const closeNav = document.querySelector('#close-nav-bg');
+
+menu.addEventListener('click', () => {
+    nav.style.display = "block";
+})
+
+closeNav.addEventListener('click', () => {
+    console.log("called");
+    nav.style.display = "none";
+})
+    </script>
+    <script src="/javascript/slider.js"></script>
+</body>
+</html>

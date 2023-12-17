@@ -1,0 +1,7 @@
+body{
+    /* overflow: hidden; */
+}
+.wrapper{
+    padding-top: 3em;
+    min-height: 90vh;
+}

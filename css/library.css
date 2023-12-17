@@ -1,0 +1,90 @@
+.wrapper{
+    /* background-color: rgb(255, 234, 78); */
+    background-image: linear-gradient(to right, rgb(255, 164, 78),rgba(255, 234, 78, 0.278),rgb(255, 164, 78));
+    padding: 2em;
+    margin-top: 2em;
+    background-image:radial-gradient(rgba(255, 234, 78, 0.278),rgb(255, 164, 78));
+}
+.all-lib-sec{
+    width: 100%;
+}
+.all-lib-def{
+    margin-bottom: 1em;
+}
+.all-lib-con{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+}
+.each-vid-lib, video{
+    max-width: 400px;
+
+}
+.each-img-lib, video, .img-des-lib{
+    box-shadow: 0 0 8px 3px #462a2a;
+}
+video{
+    width: 100%;
+    height: auto;
+}
+.vid-des-lib, .img-des-lib, .book-des-lib{
+    text-align: center;
+    min-height: fit-content;
+    border: 2px solid red;
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0.553),rgba(255, 0, 0, 0), rgba(255, 0, 0, 0.553));
+    font-weight: bold;
+    padding-inline: 1em;
+}
+.img-des-lib{
+    min-height: 19%;
+}
+.each-aud-lib, audio{
+    margin-inline: 0;
+}
+.each-img-con-lib, .each-book-con-lib{
+    width: 100%;
+    max-width: 400px;
+    min-height: 300px;
+    max-height: fit-content;
+    /* border: 2px solid red; */
+}
+.each-img-lib, .each-book-lib{
+    background-color: red;
+    width: 100%;
+    max-width: 400px;
+    height: 80%;
+    display: block;
+}
+.each-aud-lib{
+    margin-bottom: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+audio{
+    background-color: red;
+    height: 300px;
+    padding: 0.3em;
+    background-image: url(../assets/svgs/audio\ cover.svg);
+    background-size: cover;
+    background-position: center;
+    max-width: 100%;
+}
+audio::-webkit-media-controls-panel{
+    background-image: radial-gradient(rgba(255, 0, 0, 0.585),red);
+    /* background-image: linear-gradient(to right,red, blue,red); */
+    border-radius: none;
+    box-shadow: 0px 3px 10px rgb(255, 255, 255);
+}
+@media only screen and (max-width: 400px)
+{
+    .wrapper{
+        padding: 0;
+    }
+    main{
+        padding: 0.5em;
+    }
+}
