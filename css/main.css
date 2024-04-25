@@ -101,8 +101,8 @@ body{
 }
 .hero-text{
     color: white;
-    font-size: 2rem;
-    width: 70%;
+    font-size: 1.5rem;
+    width: 75%;
     border-left: 5px solid white;
     padding-left: 0.3em;
     margin-left: 1em;
@@ -320,6 +320,25 @@ footer li p{
     text-align: center;
     padding-bottom: 8px;
 }
+#target-con ul{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-size: large;
+}
+#target-con{
+    padding-bottom: 2em;
+}
+#target-con h2{
+    text-align: center;
+    width: 100%;
+}
+#target-con ul .con{
+    width: 100%;
+}
+#target-con li{
+    margin-top: 1.4em;
+}
 
 @media only screen and (max-width: 330px)
 {
@@ -369,7 +388,7 @@ footer li p{
     }
     .hero-text{
         width: 70%;
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     .scroll-img-def{
         min-width: 60%;
@@ -377,6 +396,9 @@ footer li p{
     }
     .scrolling-text-p h3{
         font-size: x-large;
+    }
+    #target-con ul .con{
+        width: 45%;
     }
     
 }
@@ -393,7 +415,7 @@ footer li p{
     }
     .hero-text{
         width: 70%;
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     
     
