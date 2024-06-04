@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 html{
     scroll-behavior: smooth;
 }
+body{
+    font-family: roboto, sans-serif;
+}
 a{
     text-decoration: none;
+}
+*{
+    transition: all 2s linear;
 }
 header{
     background-color: #00051f;
@@ -17,9 +25,71 @@ header{
     z-index: 2;
     border-bottom: 3px solid white;
 }
+.menu-icon-con{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+}
+
+#menu-icon{
+    margin-right: 10px;
+}
+#menu-icon,
+#menu-icon:before,
+#menu-icon:after{
+    display: block;
+    background-color: #cb935f;
+    width: 35px;
+    height: 5px;
+    
+}
+#menu-icon:before,
+#menu-icon:after{
+    content: "";
+    position: absolute;
+    opacity: 1;
+}
+#menu-icon:before{
+    transition: transform 1s ease;
+    transform: translateY(-10px);
+}
+#menu-icon:after{
+    transition: transform 1s ease;
+    transform: translateY(10px);
+}
+.menu-active{
+    animation: rotateIcon 2s ease;
+}
+@keyframes rotateIcon {
+    0%{
+        transform: scale(0deg);
+    }
+    100%{
+        transform: scale(360deg);
+    }
+}
+.menu-active #menu-icon{
+    background-color: #cb935f00;
+}
+.menu-active #menu-icon:after{
+    transform: rotate(45deg);
+}
+.menu-active #menu-icon:before{
+    transform: rotate(-45deg);
+}
+#menu a{
+    color:#cb935f;
+    font-size: large;
+    padding: 6px;
+    margin-inline: 30px;
+}
+
 body{
     margin: 0;
     background-color: #f0eaea;
+    background-image: linear-gradient(to right, #cacbd3, #f0eaea, #f0eaea, #cacbd3);
 }
 
 .slide-bg{
@@ -27,6 +97,7 @@ body{
     z-index: -1;
 }
 .wrapper{
+    
     margin-inline: auto;
     width: 95%;
 }
@@ -70,6 +141,7 @@ body{
     margin-right: 0.8em;
     font-size: x-small;
     font-weight: bolder;
+    border: 2px solid black;
 }
 #pie-icon{
     margin-right: 1em;
@@ -95,10 +167,11 @@ body{
     align-items: flex-end;
 }
 .hero-text-con{
-    background-color: rgba(0, 0, 0, 0.329);
+    background-color: rgba(0, 1, 29, 0.719);
     width: 100%;
     height: 40%;
     align-self:flex-end;
+    text-shadow: 3px 3px #000046;
 }
 .hero-text{
     color: white;
@@ -112,6 +185,7 @@ body{
 .body-tit-con{
     background-color: #00062a;
     color: #fff;
+    border-bottom: 2px solid white;
 }
 .body-tit{
     margin: 0;
@@ -131,9 +205,109 @@ body{
 }
 .img-con img{
     width: 100%;
-    box-shadow: 2px 2px 3px 1px black;
+    box-shadow: 2px 2px 5px 2px black;
+    border: 2px solid black;
     margin-bottom: 1em;
 }
+.journey-sec .tit-def{
+    width: min(90%, 900px);
+}
+.journey-sec .tit-def h3{
+    color: #fff;
+    font-size: 3rem;
+    padding-top: 2em;
+    margin-bottom: 0.3em;
+}
+.journey-sec .tit-def p{
+    color: #fff;
+    font-size: large;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.journeys{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5em;
+    margin-top: 2em;
+    margin-bottom: 10em;
+}
+.journey{
+    height: min(80vh, 800px);
+    width: min(90%, 350px);
+    background-color: #0000009a;
+    border: 2px solid black;
+    border-radius: 30px;
+    transform: translateX(-15px);
+}
+.card-line-con{
+    position: absolute;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.journey-card-line{
+    width: 10px;
+    height: 40%;
+    background-color: purple;
+    position: absolute;
+}
+.journey-img{
+    background-color: black;
+    background-image: url(/assets/image/logo-original.jpg);
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 30px;
+    border: 2px solid white;
+    transform: translateX(20px);
+    animation: cardSwipe 10s ease-in-out 1s infinite forwards;
+}
+@keyframes cardSwipe {
+    0%{
+        transform: translateX(20px);
+    }
+    5%{
+        transform: translateX(0px);
+    }
+    10%{
+        transform: translateX(20px);
+    }
+}
+.journey-overlay{
+    background-image: linear-gradient(to top, #000000e7, #000000af, #00000073, #00000049, #00000000);
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    display: flex;
+    align-items: flex-end;
+}
+.journey-inner-text-con{
+    /* background-color: red; */
+    color: white;
+    width: 80%;
+    padding-left: 10px;
+}
+.journey-inner-text-con h3,
+.journey-inner-text-con p{
+    margin: 0;
+    padding: 0;
+    margin-bottom: 25px;
+}
+.journey-inner-text-con h3{
+    background-color: rgba(0, 0, 0, 0.315);
+    width: fit-content;
+    padding: 6px;
+    padding-left: 13px;
+    margin-bottom: 10px;
+    border-left: 2px solid white;
+}
+
 .scrolling-text-p{
     background-color: rgb(71, 0, 80);
     text-align: center;
@@ -158,17 +332,26 @@ body{
     align-items: center;
     flex-direction: column;
 }
+#join-skype-con .text-bg{
+    border-top: 0.8px solid #eaa5ff;
+    border-bottom: 0.8px solid #eaa5ff;
+}
 .text-bg{
-    background-color: rgba(0, 0, 0, 0.514);
+    background-color: #00000083;
+    background-image: linear-gradient(#00000023, #00000069, #000000b4, #000000ec);
+    border-top: 0.8px solid #a5ffff;
+    border-bottom: 0.8px solid #a5ffff;
 }
 .text-of-img-con h3{
     margin: 0;
     color: white;
     text-align: center;
     font-size: 3rem;
+    text-shadow: 3px 3px black;
 }
 .text-of-img-con a{
-    background-color: white;
+    background-color: rgb(184, 241, 241);
+    border: 3px, solid black;
     color: black;
     font-size: x-large;
     font-weight: bolder;
@@ -185,14 +368,22 @@ body{
     display: flex;
     overflow: auto;
     gap: 3em;
+    scroll-snap-type: x mandatory;
 }
 .scroll-img-def{
+    scroll-snap-align: start;
+}
+
+.scroll-img-def{
+    scroll-snap-align: start;
     min-width: 95%;
     border-inline: 3px solid rgb(0, 0, 0);
     padding-inline: 6px;
     padding-top: 10px;
     margin-bottom: 1.5em;
     background-color: #000418;
+    border-left: 3px solid white;
+    padding-left: 50px;
 }
 .scroll-img-def img, .scroll-img-def video{
     width: 100%;
@@ -207,7 +398,8 @@ body{
 .scrollable-tit{
     font-size: x-large;
     text-align: center;
-    border-bottom: 3px solid white;
+    color: #ffffffb2;
+    border-bottom: 3px solid #ffffff65;
 }
 .about-img-con{
     width: 100%;
@@ -218,9 +410,12 @@ body{
     display: block;
     width: min(100%, 500px);
     margin-inline: auto;
+    /* border: 1px solid white; */
+    box-shadow: #ffffffa9 0px 0px 10px 0.4px;
 }
 .introd-types{
     background-color: #00062a;
+    background-image: linear-gradient(to right, #000520, #00062a,#00062a,#00062a,#00062a, #00041a);
     color: white;
 }
 .introd-types-heading h2{
@@ -433,3 +628,70 @@ footer li p{
         flex: 50%;
     }
 }
+
+
+@media only screen and (max-width: 1000px)
+{
+    /*menu set up for mobile*/
+.menu{
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    background-color:#000418;
+    border-top: 2px solid white;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+.open-menu{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+#menu a{
+    background-color: black;
+    margin: 8px;
+    padding: 10px;
+}
+}
+@media only screen and (min-width: 1000px)
+{
+    .menu-icon-con{
+        display: none;
+    }
+}
+
+
+/* Custom Scrollbar for WebKit Browsers (Chrome, Safari) */
+.scroll-sec::-webkit-scrollbar {
+    height: 10px;
+    background-color: black;
+}
+.scroll-sec::-webkit-scrollbar-track{
+    background-color: black;
+}
+.scroll-sec::-webkit-scrollbar-thumb{
+    background-color: #496c88;
+}
+
+.scroll-img-def::-webkit-scrollbar-thumb {
+    height: 6px;
+    background-color: #496c88;
+    border-radius: 10px;
+}
+
+.scroll-img-def::-webkit-scrollbar-track {
+    height: 6px;
+    background-color: black;
+    border-radius: 10px;
+}
+
+/* Custom Scrollbar for Firefox */
+.scroll-img-def {
+    scrollbar-width: thin; /* "auto" or "thin" */
+    scrollbar-color: #496c88 black; /* thumb color, track color */
+}
+
+
