@@ -10,7 +10,7 @@ a{
     text-decoration: none;
 }
 *{
-    transition: all 2s linear;
+    transition: all .3s linear;
 }
 header{
     background-color: #00051f;
@@ -52,15 +52,16 @@ header{
     opacity: 1;
 }
 #menu-icon:before{
-    transition: transform 1s ease;
+    transition: transform .2s ease;
     transform: translateY(-10px);
 }
 #menu-icon:after{
-    transition: transform 1s ease;
+    transition: transform .2s ease;
     transform: translateY(10px);
 }
 .menu-active{
-    animation: rotateIcon 2s ease;
+    transform: rotate(360deg);
+    animation: rotateIcon 0.2s ease;
 }
 @keyframes rotateIcon {
     0%{
@@ -252,7 +253,7 @@ body{
 .journey-card-line{
     width: 10px;
     height: 40%;
-    background-color: purple;
+    background-color: #fff;
     position: absolute;
 }
 .journey-img{
