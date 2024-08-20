@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="l
+">
+  <head>
+    <meta charset="utf-8">
+    <title>Create Deposit</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deposit Proof</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <!-- This is the beginning of the pdf downloader -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script> 
+    <script src="<?php echo $app_url?>/af.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" ></script>
+
+    <!-- convert to pdf -->
+    <script type="text/javascript">
+    $(document).ready(function($) 
+    { 
+
+        $(document).on('click', '#download-pdf', function(event) 
+        {
+            event.preventDefault();
+
+            //credit : https://ekoopmans.github.io/html2pdf.js
+            
+            var element = document.getElementById('con'); 
+
+            //easy
+            //html2pdf().from(element).save();
+
+            //custom file name
+            //html2pdf().set({filename: 'code_with_mark_'+js.AutoCode()+'.pdf'}).from(element).save();
+
+
+            //more custom settings
+            var opt = 
+            {
+              margin:       0,
+              //filename:     'pageContent_'+js.AutoCode()+'.pdf',
+              filename:     'Trust_Secure_Fund_Receipt.pdf',
+              image:        { type: 'jpeg', quality: 0.98 },
+              html2canvas:  { scale: 1 },
+              jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            // New Promise-based usage:
+            html2pdf().set(opt).from(element).save();
+
+             
+        });
+
+ 
+ 
+    });
+    </script>
+    <!-- This is the end of the pdf downloader code -->
+
+
+    <!--This is the beginning of image downloader-->
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js">
+    </script>
+
+    <script type="text/javascript">
+        function autoClick(){
+          $("#download-image").click();
+        }
+  
+        $(document).ready(function(){
+          var element = $("#con");
+  
+          $("#download-image").on('click', function(){
+  
+            html2canvas(element, {
+              onrendered: function(canvas) {
+                var imageData = canvas.toDataURL("image/jpg");
+                var newData = imageData.replace(/^data:image\/jpg/, "data:application/octet-stream");
+                $("#download-image").attr("download", "Trust_Secure_Fund_Receipt.jpg").attr("href", newData);
+              }
+            });
+  
+          });
+        });
+      </script>
+    <!-- This is the end of image download code -->
+  </head>
+  
+  <body onload = "autoClick();">
+
+    <section class="form-section">
+        <h1>Create Deposit</h1>
+        <form action="" onsubmit="updateTransactionReceipt()">
+
+            <div class="input-con">
+                <label for="username">UserName</label>
+                <input type="text" id="username" placeholder="Enter username" autocomplete="off">    
+            </div>
+            
+            <div class="input-con">
+                <label for="amount">Amount</label>
+                <input type="text" id="amount" placeholder="$0.0">    
+            </div>
+            
+            <div class="input-con">
+                <label for="date">Date</label>
+                <input type="date" id="date">
+            </div>
+    
+            <div class="input-con">
+                <label for="">email</label>
+                <input type="email" id="email" placeholder="example@gmail.com">
+            </div>
+    
+            <div class="input-con">
+                <label for="wallet-address">Wallet Address</label>
+                <div class="wallet-address-wrapper">
+                    <input type="text" id="wallet-address" placeholder="2938388e8838">
+                    <button type="button" onclick="generateWalletAddress(30)" class="generate-btn">Generate</button>
+                </div>
+            </div>
+    
+            <div class="input-con">
+                <label for="fee">Transaction Fee</label>
+                <input type="text" id="fee" placeholder="$0.09">
+            </div>
+    
+            <div class="input-con">
+                <label for="current-balance">Current Balance</label>
+                <input type="text" id="current-balance" placeholder="$100.0">
+            </div>
+    
+            <div class="input-con">
+                <label for="status">Status</label>
+                <input type="text" id="status" placeholder="Success">
+            </div>
+    
+            <div class="input-con">
+                <label for="method">Method</label>
+                <select name="" id="method">
+                    <option value="" disabled selected>Select method</option>
+                    <option value="USDT">USDT</option>
+                    <option value="BTC">BTC</option>
+                    <option value="ETH">ETH</option>
+                </select>
+            </div>
+
+            <button class="update-btn">Update</button>
+        </form>
+        
+
+    </section>
+
+    <section>
+        <div id="con">
+            <div class="header">
+                <div class="logo-con">
+                    <img src="/logo-light.png" alt="">
+                </div>
+                <h1>Trust Secure Fund</h1>
+            </div>
+
+            <div class="main">
+                <div class="check-con">
+                    <img src="logo.png" alt="">
+                </div>
+                <h1>Transaction Receipt</h1>
+                <p class="tit-des">Your deposit has been approved.</p>
+                <h2>Dear <span id="display-username">Daniel Mark</span></h2>
+                <p class="greeting-p">We’re grateful to have you with us. <br>Here is details of your Transaction</p>
+                <table>
+                    <tr>
+                        <td>Transaction Id:</td>
+                        <td id="trans-id">Thdjjsdjeio28238828332323</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Amount:</td>
+                        <td id="display-amount">$23,233</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Date:</td>
+                        <td id="display-date">23,32,32,232,323,83</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Transfer to:</td>
+                        <td id="display-email">Mikejohn2333@gmail.com</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Received wallet:</td>
+                        <td id="display-wallet-address">slkdjfijiei33i3iefjdj</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Transaction Fee:</td>
+                        <td id="display-fee">$0.09</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Current Balance:</td>
+                        <td id="display-current-balance">$23,323.00</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Status:</td>
+                        <td id="display-status">Success</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Method:</td>
+                        <td id="display-method">USDT</td>
+                    </tr>
+                </table>
+                <p>Thanks for investing with Trust Secure Fund. we're committed to ensuring your investments are secure and well-managed.</p>
+                <p>If you encounter any issues or have any questions, please contact us at <a href="mailto:support@trustsecurefund.com">support@trustsecurefund.com</a></p>
+            </div>
+    
+            <div class="footer">www.trustsecurefund.com</div>
+        </div>
+    
+        <div class="actions-btn-con">
+            <a id="download-image">Image</a>
+            <button id="download-pdf">PDF</button>
+        </div>
+    </section>
+
+    <section>
+        <nav>
+            <a class="nav-a" href="withdraw.html">Withdraw Proof</a>
+            <a href="deposit.html">Deposit Proof</a>
+        </nav>
+    </section>
+
+
+    <!-- Generate wallet address -->
+    <script>
+        function updateTransactionReceipt() {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const amount = document.getElementById('amount').value;
+            const date = document.getElementById('date').value;
+            const email = document.getElementById('email').value;
+            const walletAddress = document.getElementById('wallet-address').value;
+            const fee = document.getElementById('fee').value;
+            const currentBalance = document.getElementById('current-balance').value;
+            const status = document.getElementById('status').value;
+            const method = document.getElementById('method').value;
+
+
+            document.getElementById('trans-id').innerText = generateRandomCharacter(16);
+            document.getElementById('display-username').innerText = username;
+            document.getElementById('display-amount').innerText = amount;
+            document.getElementById('display-date').innerText = date;
+            document.getElementById('display-email').innerText = email;
+            document.getElementById('display-wallet-address').innerText = walletAddress;
+            document.getElementById('display-fee').innerText = fee;
+            document.getElementById('display-current-balance').innerText = currentBalance;
+            document.getElementById('display-status').innerText = status;
+            document.getElementById('display-method').innerText = method;
+        }
+
+        function generateWalletAddress(length) {
+            document.getElementById('wallet-address').value = generateRandomCharacter(length);
+        }
+
+        function generateRandomCharacter(length){
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let address = '';
+            //const length = 34; // Typical length for wallet addresses
+
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                address += characters[randomIndex];
+            }
+
+            return address
+        }
+
+    </script>
+  </body>
+</html>
